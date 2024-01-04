@@ -124,16 +124,16 @@ play = function(){
         ylab('# Try') 
     
     list_for_end = list(pointer + player & plot_layout(guides = 'collect'),
-                        "You won")
+                        "You won") # elements to show if user wins
     
     
     
     if(all(current_try$pointer == c(rep('black' , 5)))){
-      return(list_for_end)
+      return(list_for_end) # win message
     }
     
     
-    return(pointer + player & plot_layout(guides = 'collect'))
+    return(pointer + player & plot_layout(guides = 'collect')) # return plots
 }
 
 
