@@ -1,59 +1,63 @@
+# import packages
+
 library(ggplot2)
 library(patchwork)
 
-
+# colors to sample from
 
 colors = c('red' , 'yellow' , 'orange',
            'pink' , 'black' , 'white' ,
-           'green' , 'blue')
+           'green' , 'blue') 
 
-
+# create reset function: set number of tries to 0, sample colors, and
+# save variables to global environment
 
 reset = function(){
   
   cpu_cols = sample(colors , replace = T , size = 5)
-
-
-
-  previous_try = data.frame(matrix(nrow = 0 , ncol = 5))
-  colnames(previous_try) = c('try' , 'cpu' , 'player' , 'pointer' , 'pos')
-
-
-  game = data.frame(matrix(nrow = 0 , ncol = 5))
+  
+  game = data.frame(matrix(nrow = 0 , ncol = 5)) # create empty "game" dataframe
   colnames(game) = c('try' , 'cpu' , 'player' , 'pointer' , 'pos')
-
+  
   try = 1 # number of try 
   
   assign("cpu_cols" , cpu_cols , envir = .GlobalEnv)
-  assign("previous_try" , previous_try , envir = .GlobalEnv)
   assign("game" , game , envir = .GlobalEnv)
   assign("try" , try , envir = .GlobalEnv)
-
+  
 }
 
 
 
 
-
+# create play function: let user choose 5 colors, update the "game" dataframe
+# and plot the results
 
 play = function(){
   
   # let player choose colors
+    print("Choose color in position 1")
     col1 = readline()
     
+    print("Choose color in position 2")
     col2 = readline()
     
+    print("Choose color in position 3")
     col3 = readline()
-  
+    
+    print("Choose color in position 4")
     col4 = readline()
     
+    print("Choose color in position 5")
     col5 = readline()
     
     player_cols = c(col1,col2,col3,col4,col5)
     
     if(!(all(player_cols %in% colors))){
-      return(print("Insert a valid color"))
-    }
+      return(print("Insert a valid color")) 
+    }  # get error message if color is not valid
+    
+    
   # create dataframe of colors from cpu and player 
     
     current_try = data.frame(try_num = rep(try , length(player_cols)) , 
@@ -64,7 +68,7 @@ play = function(){
     
     
     try = try + 1 # update value of try
-    assign("try" , try , env = .GlobalEnv)
+    assign("try" , try , env = .GlobalEnv) # save try to global env
     
   # checking if position is right and col is right
     
@@ -93,9 +97,7 @@ play = function(){
     game = rbind(game , current_try) # update game dataframe
     assign("game" , game , env = .GlobalEnv)
     
-    #previous_try = current_try # convert current to previous
-    #assign("previous_try" , previous_try , env = .GlobalEnv)
-    
+
     player = game |> ggplot(aes(y = try_num , x = pos)) + 
         geom_point(size = 10 , fill = game$player,
                    col = 'black' , pch = 21) +
