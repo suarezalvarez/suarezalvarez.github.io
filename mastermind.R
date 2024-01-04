@@ -8,16 +8,28 @@ colors = c('red' , 'yellow' , 'orange',
            'green' , 'blue')
 
 
-cpu_cols = sample(colors , replace = T , size = 5)
 
-
-try = 1 # number of try 
-
-previous_try = data.frame()
-game = data.frame()
+reset = function(){
+  
+  cpu_cols = sample(colors , replace = T , size = 5)
 
 
 
+  previous_try = data.frame(matrix(nrow = 0 , ncol = 5))
+  colnames(previous_try) = c('try' , 'cpu' , 'player' , 'pointer' , 'pos')
+
+
+  game = data.frame(matrix(nrow = 0 , ncol = 5))
+  colnames(game) = c('try' , 'cpu' , 'player' , 'pointer' , 'pos')
+
+  try = 1 # number of try 
+  
+  assign("cpu_cols" , cpu_cols , envir = .GlobalEnv)
+  assign("previous_try" , previous_try , envir = .GlobalEnv)
+  assign("game" , game , envir = .GlobalEnv)
+  assign("try" , try , envir = .GlobalEnv)
+
+}
 
 
 
@@ -29,46 +41,30 @@ play = function(){
   # let player choose colors
     col1 = readline()
     
-    if(!(col1 %in% colors)){
-      print(paste(col1 , "is not a color."))
-    }
-    
     col2 = readline()
     
-    if(!(col2 %in% colors)){
-      print(paste(col1 , "is not a color."))
-      
-    }
     col3 = readline()
-    
-    if(!(col3 %in% colors)){
-      print(paste(col1 , "is not a color."))
-      
-    }
+  
     col4 = readline()
-    if(!(col4 %in% colors)){
-      print(paste(col1 , "is not a color."))
-      
-    }
+    
     col5 = readline()
-    if(!(col5 %in% colors)){
-      print(paste(col1 , "is not a color."))
-      
-    }
+    
     player_cols = c(col1,col2,col3,col4,col5)
     
+    if(!(all(player_cols %in% colors))){
+      return(print("Insert a valid color"))
+    }
   # create dataframe of colors from cpu and player 
     
-    current_try = data.frame(try = rep(try , length(player_cols)) , 
+    current_try = data.frame(try_num = rep(try , length(player_cols)) , 
                cpu = cpu_cols , 
                player = player_cols,
                pointer = rep('grey' , 5),
                pos = seq(1:length(player_cols)))
     
     
-    
-    
-    
+    try = try + 1 # update value of try
+    assign("try" , try , env = .GlobalEnv)
     
   # checking if position is right and col is right
     
@@ -93,44 +89,56 @@ play = function(){
     current_try$pointer[(black + 1):(black+white)] = 'white' # correct colors
     }
     
-    try = try + 1 # update value of try
     
-    game = rbind(previous_try , current_try)
+    game = rbind(game , current_try) # update game dataframe
+    assign("game" , game , env = .GlobalEnv)
     
-    previous_try = current_try
+    #previous_try = current_try # convert current to previous
+    #assign("previous_try" , previous_try , env = .GlobalEnv)
     
+    player = game |> ggplot(aes(y = try_num , x = pos)) + 
+        geom_point(size = 10 , fill = game$player,
+                   col = 'black' , pch = 21) +
+        theme(panel.background = element_rect(fill = 'white'),
+              panel.border = element_rect(color = 'black',
+                                          fill = NA),
+              text = element_text(size = 20)) + 
+        scale_y_continuous(breaks = c(1:try) , n.breaks = try) + 
+        xlab('') +
+        ylab('')
+    
+    
+    
+    
+    pointer = game |> ggplot(aes(y = try_num , x = pos)) + 
+        geom_point(size = 10 , fill = game$pointer,
+                   col = 'black' , pch = 21) +
+        theme(panel.background = element_rect(fill = 'white'),
+              panel.border = element_rect(color = 'black',
+                                          fill = NA),
+              text = element_text(size = 20)) + 
+        scale_y_continuous(breaks = c(1:try), n.breaks = try) + 
+        xlab('') +
+        ylab('# Try') 
+    
+    list_for_end = list(pointer + player & plot_layout(guides = 'collect'),
+                        "You won")
+    
+    
+    
+    if(all(current_try$pointer == c(rep('black' , 5)))){
+      return(list_for_end)
+    }
+    
+    
+    return(pointer + player & plot_layout(guides = 'collect'))
 }
 
 
 
 
 
-(player = game |> ggplot(aes(y = try , x = pos)) + 
-  geom_point(size = 10 , fill = game$player,
-             col = 'black' , pch = 21) +
-    theme(panel.background = element_rect(fill = 'white'),
-          panel.border = element_rect(color = 'black',
-                                      fill = NA),
-          text = element_text(size = 20)) + 
-  scale_y_continuous(breaks = c(1:try)) + 
-  xlab('') +
-  ylab('')) 
 
-
-
-
-(pointer = game |> ggplot(aes(y = try , x = pos)) + 
-  geom_point(size = 10 , fill = game$pointer,
-             col = 'black' , pch = 21) +
-  theme(panel.background = element_rect(fill = 'white'),
-        panel.border = element_rect(color = 'black',
-                                    fill = NA),
-        text = element_text(size = 20)) + 
-  scale_y_continuous(breaks = c(1:try)) + 
-  xlab('') +
-  ylab('# Try') )
-
-pointer + player & plot_layout(guides = 'collect')
 
 
 
