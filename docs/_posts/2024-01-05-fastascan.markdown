@@ -277,6 +277,7 @@ This is the output of ```fastascan``` using the default settings (without specif
 
 
 ```shell
+
 suarezalvarez🐉 ~/sequences_example $ fastascan
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -409,6 +410,10 @@ LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 </details>
 
 # Code
+
+
+<details>
+<summary>Click to toggle the bash code</summary>
 
 ```bash
 #!/usr/bin/env bash
@@ -587,6 +592,7 @@ done
 
 ```
 
+</details>
 
 
 
