@@ -19,7 +19,12 @@ For an example, I created a folder with 4 different files (2 contain protein seq
 <details>
 	
 <summary>Click to toggle contents of cd40_seqs.fa</summary>
-<!— break -->
+
+
+
+
+
+
 
 ```
 >NM_134360.1 Rattus norvegicus CD40 molecule (Cd40), mRNA
@@ -234,7 +239,7 @@ AA
 	
 <summary>Click to toggle contents of normal_text.txt</summary>
 
-<!— break -->
+
 
 ```
 hello this is an example text
@@ -248,6 +253,12 @@ hello this is an example text
 <details>
 	
 <summary>Click to toggle contents of Q9NZQ7.fasta</summary>
+
+
+
+
+
+
 
 
 ```
@@ -266,7 +277,10 @@ LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 	
 <summary>Click to toggle contents of Q9Y4U1.fasta</summary>
 
-<!— break -->
+
+
+
+
 
 ```
 >sp|Q9Y4U1|MMAC_HUMAN Cyanocobalamin reductase / alkylcobalamin dealkylase OS=Homo sapiens OX=9606 GN=MMACHC PE=1 SV=3
@@ -289,7 +303,11 @@ This is the output of ```fastascan``` using the default settings (without specif
 	
 <summary>Click to toggle the output</summary>
 
-<!— break -->
+
+
+
+
+
 
 ```shell
 
@@ -347,7 +365,11 @@ And this is the output specifying the folder from my home folder, and specifying
 	
 <summary>Click to toggle the output</summary>
 
-<!— break -->
+
+
+
+
+
 
 ```shell
 suarezalvarez🐉 ~ $ fastascan sequences_example/ 4
@@ -437,7 +459,11 @@ LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 	
 <summary>Click to toggle the bash code</summary>
 
-<!— break -->
+
+
+
+
+
 
 ```bash
 #!/usr/bin/env bash
