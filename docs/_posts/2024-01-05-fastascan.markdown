@@ -17,7 +17,9 @@ The user can specify the folder to search in, and also if they want the first an
 For an example, I created a folder with 4 different files (2 contain protein sequences in fasta format, 1 contains nucleic acid sequences in fasta format, and another one is a plain text without format). You can click them to see the content.
 
 <details>
+	
 <summary>Click to toggle contents of cd40_seqs.fa</summary>
+
 
 ```
 >NM_134360.1 Rattus norvegicus CD40 molecule (Cd40), mRNA
@@ -224,6 +226,7 @@ AA
 
 
 ```
+
 </details>
 
 
@@ -240,7 +243,9 @@ hello this is an example text
 
 
 <details>
+	
 <summary>Click to toggle contents of Q9NZQ7.fasta</summary>
+
 
 ```
 >sp|Q9NZQ7|PD1L1_HUMAN Programmed cell death 1 ligand 1 OS=Homo sapiens OX=9606 GN=CD274 PE=1 SV=1
@@ -250,11 +255,14 @@ ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
 TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 ```
+
 </details>
 
 
 <details>
+	
 <summary>Click to toggle contents of Q9Y4U1.fasta</summary>
+
 
 ```
 >sp|Q9Y4U1|MMAC_HUMAN Cyanocobalamin reductase / alkylcobalamin dealkylase OS=Homo sapiens OX=9606 GN=MMACHC PE=1 SV=3
@@ -265,6 +273,7 @@ DCVPTRADRIALLEGFNFHWRDWTYRDAVTPQERYSEEQKAYFSTPPAQRLALLGLAQPS
 EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
 
 ```
+
 </details>
 
 
@@ -273,6 +282,7 @@ EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
 This is the output of ```fastascan``` using the default settings (without specifying directory or number of lines, meaning that it will search in the current directory and not show any content from the files):
 
 <details>
+	
 <summary>Click to toggle the output</summary>
 
 
@@ -322,12 +332,14 @@ xx Not a symbolic link
 
 
 ```
+
 </details>
 
 
 And this is the output specifying the folder from my home folder, and specifying the number of lines. 
 
 <details>
+	
 <summary>Click to toggle the output</summary>
   
 ```shell
@@ -407,13 +419,17 @@ TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 
 ```
+
 </details>
+
 
 # Code
 
 
 <details>
+	
 <summary>Click to toggle the bash code</summary>
+
 
 ```bash
 #!/usr/bin/env bash
