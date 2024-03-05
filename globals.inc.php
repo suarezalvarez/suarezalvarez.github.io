@@ -5,8 +5,8 @@
  */
 // Base directories
 // Automatic, taken from CGI variables.
-$baseDir = dirname($_SERVER['SCRIPT_FILENAME']);
-#$baseDir = '/home/gelpi/DEVEL/WWW/DBW/PDBBrowser';
+//$baseDir = dirname($_SERVER['SCRIPT_FILENAME']);
+$baseDir = '/home/martin/suarezalvarez.github.io';
 $baseURL = dirname($_SERVER['SCRIPT_NAME']);
 
 // Temporal dir, create if not exists, however Web server 
@@ -14,10 +14,10 @@ $baseURL = dirname($_SERVER['SCRIPT_NAME']);
 $tmpDir = "$baseDir/tmp";
 
 // Clustal Omega 
-$clustaloHome = "/usr/local/bin/";
+$clustaloHome = "/home/martin/suarezalvarez.github.io/bin";
 
 $clustaloExe = "$clustaloHome/clustalo";
-$clustaloCmdLine = "$clustaloExe -i";
+$clustaloCmdLine = "$clustaloExe --residuenumber -i ";
 
 // Include directory
 $incDir = "$baseDir/include";

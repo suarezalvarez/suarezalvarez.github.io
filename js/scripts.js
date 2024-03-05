@@ -31,4 +31,16 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+
+    
+
+});
+
+// Add the JavaScript code for the animation here
+const btn = document.querySelector('.btn');
+btn.addEventListener('mouseover', function() {
+    btn.classList.add('animate');
+});
+btn.addEventListener('mouseout', function() {
+    btn.classList.remove('animate');
 });

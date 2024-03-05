@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 
 // Loading global variables and DB connection
 require "globals.inc.php";
@@ -15,13 +11,23 @@ $inputOptions = array(
 );
 $nonEmptyInputs = array_filter($inputOptions, function($value) { return !empty($value); });
 
+// Define the Clustal Omega format
+$format = $_POST['alignment_format'];
 
+// Define error variable to false by default
+
+$error = null;
+
+
+// Check if exactly one input option is provided
 
 if (count($nonEmptyInputs) !== 1) {
-    // Redirect to index.php
-    header('Location: index.php');
+    // Redirect to clustal_index.php
+    header('Location: clustal_index.php');
     exit();
 }
+
+
 
 // Get the key and value of the non-empty input
 $inputKey = array_key_first($nonEmptyInputs);
@@ -29,69 +35,90 @@ $inputValue = array_values($nonEmptyInputs)[0];
 
 // Print the user's input
 if ($inputKey === 'uniprot_ids') {
+    
+    // Remove leading and trailing commas
+
+    if (substr($inputValue, 0, 1) === ',') {
+        $inputValue = ltrim($inputValue, ',');
+    }
+    
+    if (substr($inputValue, -1) === ',') {
+        $inputValue = rtrim($inputValue, ',');
+    }
+
+    
+
     // Split the input into an array of IDs
+
     $ids = explode(',', $inputValue);
+
+ 
     $tmpFilePath = @tempnam($tmpDir, 'fasta_');
 
     foreach ($ids as $id) {
         $id = trim($id);
         $url = "https://www.uniprot.org/uniprot/{$id}.fasta";
-        $sequence = file_get_contents($url);
-        file_put_contents($tmpFilePath, $sequence, FILE_APPEND);
+        $sequence = @file_get_contents($url); // Get the sequence from UNIPROT
+        if ($sequence === false) {
+            $nonValidIds = array(); // Create an array to store non-valid IDs
+
+            foreach ($ids as $id) {
+                $id = trim($id);
+                $url = "https://www.uniprot.org/uniprot/{$id}.fasta";
+                $sequence = @file_get_contents($url);
+
+                if ($sequence === false) {
+                    $nonValidIds[] = $id; // Add non-valid ID to the array
+                } else {
+                    file_put_contents($tmpFilePath, $sequence, FILE_APPEND);
+                }
+            }
+
+            if (!empty($nonValidIds)) {
+                $error = "These IDs are not found in UNIPROT: " . implode(', ', $nonValidIds) . "\n"; // Output non-valid IDs as error message
+            }
+        } else {
+            file_put_contents($tmpFilePath, $sequence, FILE_APPEND);
+        }
     }
-    // Define the Clustal Omega command
-
-    $clustaloCmd = "$clustaloCmdLine $tmpFilePath";
-
-    // Execute the Clustal Omega command
-    $clustaloOutput = shell_exec($clustaloCmd);
-         
-    // Delete the temporary file
-    unlink($tmpFilePath);
 
     
+
 } elseif ($inputKey === 'file') {
 
-    
-    // Get the path to the temporary file
-    $tmpFilePath = $_FILES['fasta_file']['tmp_name'];
+        // Get the path to the temporary file
+        $tmpFilePath = $_FILES['fasta_file']['tmp_name'];
 
-    // Read the contents of the file
-    $sequences = file_get_contents($tmpFilePath);
-
-    // Define the Clustal Omega command
-    $clustaloCmd = "$clustaloCmdLine $tmpFilePath";
-    $clustaloOutput = shell_exec($clustaloCmd);
-    
-    // Delete the temporary file
-    unlink($tmpFilePath);
-
-
+        // Read the contents of the file
+        $sequences = file_get_contents($tmpFilePath);
 
 } else {
-    $sequences = $inputValue;
+        $sequences = $inputValue;
 
-    // Create a temporary file to store the sequences
-    $tmpFilePath = @tempnam($tmpDir, 'fasta_');
+        // Create a temporary file to store the sequences
+        $tmpFilePath = @tempnam($tmpDir, 'fasta_');
 
-    // Write the sequences to the temporary file
-    file_put_contents($tmpFilePath, $sequences);
+        // Write the sequences to the temporary file
+        file_put_contents($tmpFilePath, $sequences);
+    }
 
-    // Define the Clustal Omega command
-    $clustaloCmd = "$clustaloCmdLine $tmpFilePath";
+  // Check if the input is in fasta format
+        if (substr($sequences, 0, 1) !== '>') {
+            $error = "The input must be in FASTA format (first character must be \">\")";
+        }
 
-    // Execute the Clustal Omega command
-    $clustaloOutput = shell_exec($clustaloCmd);
+// Define the Clustal Omega command
+
+$clustaloCmd = "$clustaloCmdLine $tmpFilePath --outfmt=$format";
+
+// Execute the Clustal Omega command
 
 
+$clustaloOutput = shell_exec($clustaloCmd);
+$_SESSION['clustaloOutput'] = $clustaloOutput;      
+// Delete the temporary file
+unlink($tmpFilePath);
 
-    $clustaloOutput = shell_exec($clustaloCmd);
-
-
-
-    // Delete the temporary file
-    unlink($tmpFilePath);
-}
 
 // ============ end controller =======================================
 
@@ -101,39 +128,9 @@ if ($inputKey === 'uniprot_ids') {
  
 
  <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Martín Suárez Álvarez</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/icon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@590&display=swap" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top" ;">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Martín Suárez Álvarez</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                </ul>
-            </div>
-        </nav>
+    <html lang="en">
+
+ <?php include "header.php"; ?>
 
 
 
@@ -148,8 +145,21 @@ if ($inputKey === 'uniprot_ids') {
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            
-                            <p> <?php echo nl2br($clustaloOutput); ?> </p>
+                            <pre style="font-family: 'Courier New', monospace; font-size: 20px;">
+
+                            <p> <?php 
+                            if ($error == null) {
+                            echo nl2br($clustaloOutput);}
+
+                            else {
+                                echo $error;}
+                            ?> 
+                             </p>
+
+                        </pre>
+
+                            <a href="download_alignment.php" class="btn btn-primary btn-lg" style="font-size: 2em; padding: 20px 40px; border-radius: 0; transition: background-color 0.3s; position: relative; overflow: hidden; color: black; z-index:1;">Download alignment</a>
+                               <div class="curtain"></div>
 
                         </div>
                     </div>
@@ -168,7 +178,7 @@ if ($inputKey === 'uniprot_ids') {
                     <!-- Core theme JS-->
                     <script src="js/scripts.js"></script>
                     </body>
-                    </html>
+    </html>
 
 
 
