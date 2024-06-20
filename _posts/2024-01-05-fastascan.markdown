@@ -19,7 +19,8 @@ For an example, I created a folder with 4 different files (2 contain protein seq
 <details>
 	
 <summary>Click to toggle contents of cd40_seqs.fa</summary>
-```
+<pre>
+<code>
 >NM_134360.1 Rattus norvegicus CD40 molecule (Cd40), mRNA
 CTGGCTGCTCTGATCTCGCTCTGCAATGCTGCCTTTGCCTCAGCTGTGCGCGCTCTGGGGCTGCTTGTTG
 ACAGCGGTCCATCTAGGACAGTGTGTTACGTGCAGTGACAAACAGTACCTCCAAGGTGGCGAGTGCTGCG
@@ -221,29 +222,34 @@ GCATCATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGAC
 GTCTGGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTC
 ATCATTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAA
 AA
-```
+</pre>
+</code>
 </details>
 <details>
 <summary>Click to toggle contents of normal_text.txt</summary>
-```
+<pre>
+<code>
 hello this is an example text
 hello hello hello 
 hello this is an example text
-```
+</pre>
+</code>
 </details>
 
 
 <details>
 	
 <summary>Click to toggle contents of Q9NZQ7.fasta</summary>
-```
+<pre>
+<code>
 >sp|Q9NZQ7|PD1L1_HUMAN Programmed cell death 1 ligand 1 OS=Homo sapiens OX=9606 GN=CD274 PE=1 SV=1
 MRIFAVFIFMTYWHLLNAFTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEME
 DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
 ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
 TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
-```
+</pre>
+</code>
 
 
 </details>
@@ -252,14 +258,16 @@ LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 <details>
 	
 <summary>Click to toggle contents of Q9Y4U1.fasta</summary>
-```
+<pre>
+<code>
 >sp|Q9Y4U1|MMAC_HUMAN Cyanocobalamin reductase / alkylcobalamin dealkylase OS=Homo sapiens OX=9606 GN=MMACHC PE=1 SV=3
 MEPKVAELKQKIEDTLCPFGFEVYPFQVAWYNELLPPAFHLPLPGPTLAFLVLSTPAMFD
 RALKPFLQSCHLRMLTDPVDQCVAYHLGRVRESLPELQIEIIADYEVHPNRRPKILAQTA
 AHVAGAAYYYQRQDVEADPWGNQRISGVCIHPRFGGWFAIRGVVLLPGIEVPDLPPRKPH
 DCVPTRADRIALLEGFNFHWRDWTYRDAVTPQERYSEEQKAYFSTPPAQRLALLGLAQPS
 EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
-```
+</pre>
+</code>
 
 </details>
 
@@ -271,7 +279,8 @@ This is the output of ```fastascan``` using the default settings (without specif
 <details>
 	
 <summary>Click to toggle the output</summary>
-```shell
+<pre>
+<code>
 
 suarezalvarez🐉 ~/sequences_example $ fastascan
 
@@ -315,7 +324,8 @@ xx 1 protein sequence(s)
 xx 290 amino acids in the sequences of this file
 xx Not a symbolic link
 ```
-
+</pre>
+</code>
 </details>
 
 
@@ -324,7 +334,8 @@ And this is the output specifying the folder from my home folder, and specifying
 <details>
 	
 <summary>Click to toggle the output</summary>
-```shell
+<pre>
+<code>
 suarezalvarez🐉 ~ $ fastascan sequences_example/ 4
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -399,7 +410,8 @@ DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
 ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
 TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
-```
+</pre>
+</code>
 
 </details>
 
@@ -410,7 +422,8 @@ LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
 <details>
 	
 <summary>Click to toggle the bash code</summary>
-```bash
+<pre>
+<code>
 #!/usr/bin/env bash
 
 
@@ -585,7 +598,8 @@ fi
 	
 done
 
-```
+</pre>
+</code>
 
 </details>
 
