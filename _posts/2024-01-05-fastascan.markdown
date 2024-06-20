@@ -225,6 +225,7 @@ AA
 </pre>
 </code>
 </details>
+
 <details>
 <summary>Click to toggle contents of normal_text.txt</summary>
 <pre>
@@ -232,8 +233,9 @@ AA
 hello this is an example text
 hello hello hello 
 hello this is an example text
-</pre>
 </code>
+</pre>
+
 </details>
 
 
@@ -248,8 +250,9 @@ DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
 ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
 TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
-</pre>
 </code>
+</pre>
+
 
 
 </details>
@@ -266,8 +269,8 @@ RALKPFLQSCHLRMLTDPVDQCVAYHLGRVRESLPELQIEIIADYEVHPNRRPKILAQTA
 AHVAGAAYYYQRQDVEADPWGNQRISGVCIHPRFGGWFAIRGVVLLPGIEVPDLPPRKPH
 DCVPTRADRIALLEGFNFHWRDWTYRDAVTPQERYSEEQKAYFSTPPAQRLALLGLAQPS
 EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
-</pre>
 </code>
+</pre>
 
 </details>
 
@@ -324,8 +327,8 @@ xx 1 protein sequence(s)
 xx 290 amino acids in the sequences of this file
 xx Not a symbolic link
 ```
-</pre>
 </code>
+</pre>
 </details>
 
 
@@ -410,8 +413,8 @@ DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
 ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
 TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
 LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
-</pre>
 </code>
+</pre>
 
 </details>
 
@@ -597,9 +600,8 @@ find $directory \( -name "*.fasta" -or -name "*.fa" \) \( -type f -or -type l \)
 fi		
 	
 done
-
-</pre>
 </code>
+</pre>
 
 </details>
 
