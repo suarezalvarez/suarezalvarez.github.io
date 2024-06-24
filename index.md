@@ -1,8 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: Home
 ---
 Hello! I'm Martín. To know more about me, check out the [About](/about) page. 
 You can also see what I've been doing these years in my [Resume](/resume) page.
