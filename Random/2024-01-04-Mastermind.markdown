@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: default
 title:  "Mastermind"
 date:   2024-01-04 23:30:00 +0100
-categories: jekyll update
 ---
 
 So this is the 1st post :) I wanted to share a piece of code that I did just for fun after discovering the board game [Mastermind](https://en.wikipedia.org/wiki/Mastermind_(board_game)). In this case, the computer samples 5 times from a set of 8 colors with replacement, and the user will try to guess the colors that were chosen and their position. This is done in R, and visualized through 2 plots (using ```ggplot2```) that are shown together using ```patchwork``` to simulate the actual board. 
