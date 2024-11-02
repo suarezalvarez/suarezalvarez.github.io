@@ -10,7 +10,7 @@ We decided on the “wisefrog” name for many reasons. The term “Wise” conv
 
 It was developed by Jone Gutiérrez Díez and myself. 
 
-## Repository structure
+<h2> Repository structure </h2>
 
 ```
 ├── 1N07_structure.png
@@ -40,11 +40,11 @@ It was developed by Jone Gutiérrez Díez and myself.
 3 directories, 20 files
 ```
 
-## Tutorial
+<h2>Tutorial</h2>
 
 As this tutorial focuses on a Python-based model, it will comprehensively cover its usage, starting from basic operations such as program initialization and simple output generation, all the way to exploring its full potential in handling more complex tasks and functionalities
 
-### Introduction
+<h3> Introduction</h3>
 
 **SETTING UP THE ENVIRONMENT: INSTALLATION**
 
@@ -65,13 +65,13 @@ pip install wisefrog-0.1.tar.gz
 This might take some minutes, be patient! Once the installation has ended the user will be able now, to predict ligand binding sites with wisefrog. 
 
 
-### Basic concepts
+<h3> Basic concepts</h3>
 
 This package gives priority to user-friendliness and ease of use. So, always remember following the basic structure we suggest:
 
 ![Image of the structure of the wisefrog command](wisefrog/TUTORIAL.jpg)
 
-### Walkthrough
+<h3>Walkthrough</h3>
 
 **USING WISEFROG TO PREDICT LBS FROM A SINGLE PDB FILE**
 
@@ -171,7 +171,7 @@ In this case the output won’t be shown in the terminal, but in the desired out
 Note that in bash, flags can be combined, as in -cao.
 
 
-### Examples and use cases
+<h2># Examples and use cases
 
 **EXAMPLE 1: USING WISEFROG TO PREDICT LBS FROM PDB ENTRY 1N07**
 
