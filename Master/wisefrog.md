@@ -1,3 +1,7 @@
+---
+layout: default
+title: "wisefrog"
+---
 This project was developed for the courses of Python and Structural Bioinformatics. You can check the repository [here](https://github.com/joneg10/wisefrog).
 
 wisefrog is a Deep Learning based model that classifies LBS according to the physical and chemical properties of atoms. Moreover, our model characterizes atoms by its environment (geometrically, the atoms that surround it), which gives a precise and specific perspective of how LBS are composed and classifies whether an atom or residue belongs to a LBS or not.

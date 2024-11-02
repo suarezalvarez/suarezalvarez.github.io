@@ -1,8 +1,6 @@
 ---
 layout: default
-title:  "fastascan"
-date:   2024-01-05 13:45:00 +0100
-categories: jekyll update
+title: "fastascan"
 ---
 
 ```fastascan``` is the name of a tool that we had to create in the MSc in bioinformatics as an assignment for a Unix/algorithmics course. This was one midterm assignment after approximately 2 months using bash. 
