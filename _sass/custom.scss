@@ -24,9 +24,8 @@ body{
 
   .twitter-button {
     display: inline-block;
-    background-color: #1DA1F2;
-    color: white;
-    border-radius: 5px;
+    background-color: white;
+    color: darkslategray;
     border: none;
     padding: 10px 20px;
     text-decoration: none;
@@ -36,5 +35,6 @@ body{
   }
 
   .twitter-button:hover {
-    background-color: #0c85d0;
+    background-color: darkslategray;
+    color: white;
   }
