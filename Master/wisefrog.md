@@ -171,7 +171,7 @@ In this case the output won’t be shown in the terminal, but in the desired out
 Note that in bash, flags can be combined, as in -cao.
 
 
-<h2># Examples and use cases
+<h2># Examples and use cases </h2>
 
 **EXAMPLE 1: USING WISEFROG TO PREDICT LBS FROM PDB ENTRY 1N07**
 
