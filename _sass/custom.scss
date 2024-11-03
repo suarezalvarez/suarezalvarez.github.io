@@ -1,15 +1,18 @@
+
+
 body{
-  color:white;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, sans-serif;
   color: white;
+  background-color: darkslategrey;
 }
-
-a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  h1, h2, h3, h4, h5, h6 {
     font-family: Arial, sans-serif;
     color: white;
+  }
+
+  a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-family: Arial, sans-serif;
+    color: white;
+    font-weight: bold; // Add font-weight property to make links bold
   }
 
   .twitter-button {
@@ -24,7 +27,7 @@ a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     font-weight: bold;
     transition: background-color 0.3s ease;
   }
-  
+
   .twitter-button:hover {
     background-color: #0c85d0;
   }
