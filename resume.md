@@ -4,6 +4,8 @@ title: "Resume"
 permalink: /resume
 ---
 
+I am a biochemist and MSc student in Bioinformatics for Health Sciences at Universitat Pompeu Fabra (Barcelona). Currently, I'm carrying out my master’s thesis at the Karolinska Institutet, Stockholm. I have great interest in single cell and spatial data analysis, mucosal immunology, and statistics.
+
 # Education
 
 **2023-2025:** MSc in Bioinformatics for Health Sciences @ Universitat Pompeu Fabra
@@ -15,6 +17,10 @@ Focus on genomics, statistical and mathematical methods, data analysis and struc
 Elective courses in molecular biology and cancer biology
 
 # Professional experience
+
+**October 2024 - June 2025** Master thesis @ Karolinska Institutet, Stockholm, Sweden
+
+Master student at Eduardo Villablanca's laboratory, working on analysis of longitudinal RNA-seq data in the context of IBD. 
 
 **Feb - Jul 2023** Bachelor thesis @ Universitätsklinikum Freiburg, Germany
 
