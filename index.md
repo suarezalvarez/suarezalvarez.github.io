@@ -5,7 +5,7 @@ title: Home
 
 <div style="display: flex;">
     <div style="width: 25%;">
-        <img src="path/to/your/image.jpg" alt="Profile Picture" style="border-radius: 50%; width: 100%;">
+        <img src="profile_new.jpeg" alt="Profile Picture" style="border-radius: 100%; width: 100%">
     </div>
     <div style="width: 75%;">
         Hello, I'm Martín Suárez Álvarez, from Galicia and based in Stockholm. I studied Biochemistry at the Universitat de Barcelona, and I'm currently studying a MSc in Bioinformatics for Health Sciences at Universitat Pompeu Fabra (Barcelona). I moved to Stockholm in October 2024 to do my master's thesis, where I'm working in analyzing RNA-seq data to better understand mucosal healing in IBD.
