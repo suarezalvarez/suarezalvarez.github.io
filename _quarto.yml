@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "suarezalvarez"
+  navbar:
+    right:
+      - about.qmd
+      - icon: linkedin
+        text: LinkedIn
+        href: www.linkedin.com/in/martin-suarez-alvarez-00b94a225
+      - icon: github
+        text: Github
+        href: https://github.com/suarezalvarez
+format:
+  html:
+    theme: flatly
+    css: styles.css
+
+
+

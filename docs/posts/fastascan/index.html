@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.41">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>fastascan – suarezalvarez</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e28cb2e5713955014097a44ef3e9698e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">suarezalvarez</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../www.linkedin.com/in/martin-suarez-alvarez-00b94a225"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text">LinkedIn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/suarezalvarez"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text">Github</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">fastascan</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><code>fastascan</code> is the name of a tool that we had to create in the MSc in bioinformatics as an assignment for a Unix/algorithmics course. This was one midterm assignment after approximately 2 months using bash.</p>
+<p>The purpose of this script is to design a tool that detects the .fa or .fasta files in an user-specified folder, does a summary of the files in the folder, and then an individual report containing the number of sequences, the number of amino acids/nucleotides in the whole file, specifying if the file is a symbolic link, and detecting if the file contains nucleotide or amino acid sequences.</p>
+<p>The user can specify the folder to search in, and also if they want the first and last “n” lines of the file to be shown. If the number of lines of the file is smaller than 2n, the whole file is shown. The format to use the tool is <code>fastascan [folder] [number_of_lines]</code>. If the user doesn’t specify the folder to search, it will use by default the current directory. If the user doesn’t specify the number of lines, it won’t show any content of the file. If the 1st argument is an integer, and there is no 2nd argument, it will interpret the 1st as the number of lines that the user wants to see, and will search in the current directory.</p>
+<section id="example" class="level1">
+<h1>Example</h1>
+<section id="files" class="level2">
+<h2 class="anchored" data-anchor-id="files">Files</h2>
+<p>For an example, I created a folder with 4 different files (2 contain protein sequences in fasta format, 1 contains nucleic acid sequences in fasta format, and another one is a plain text without format). You can click them to see the content.</p>
+<details>
+<summary>
+Click to toggle contents of cd40_seqs.fa
+</summary>
+<pre><code>
+
+&gt;NM_134360.1 Rattus norvegicus CD40 molecule (Cd40), mRNA
+CTGGCTGCTCTGATCTCGCTCTGCAATGCTGCCTTTGCCTCAGCTGTGCGCGCTCTGGGGCTGCTTGTTG
+ACAGCGGTCCATCTAGGACAGTGTGTTACGTGCAGTGACAAACAGTACCTCCAAGGTGGCGAGTGCTGCG
+ATTTGTGCCAGCCGGGAAACCGACTAGTTAGCCACTGCACAGCTCTTGAGAAGACCCAATGCCAACCGTG
+CGACTCAGGCGAATTCTCAGCTCACTGGAACAGGGAGATCCGCTGCCACCAGCACCGACACTGCGAACTC
+AATCAAGGGCTTCAGGTTAAGAAGGAGGGCACCGCGGTTTCAGACACTGTTTGTACCTGCAAGGAAGGGC
+AGCACTGCGCCAGCAAGGAGTGCGAGACGTGCGCTCAGCACACGCCCTGTGGCCCTGGCTTTGGAGTCGT
+GCAGATGGCCACTGAGACTACTGATACTGTCTGCCAACCCTGCCCGGTCGGATTCTTCTCCAATGGGTCA
+TCACTTTTTGAAAAGTGTCATCCATGGACAAGCTGTGAAGATCAGAAGCTGATGGTCCTACGGGAAGGAA
+CAAGTCAGACTGATACCCTCTGTGGTTTCCAGCCCCGGATGCGAGCCCTGCTGGTCATTCCCGTCGTGAT
+GGTCATCCTCATCACCATCTTTGTGGTTTTTCTCTATATCAAAAAGGTGGTCAAGAAACCAAAGGACAAT
+GAGGTCTTACCCCCTGAGGCTCGAGGACAAGATCCTGTGGAGATAGAAGATTATCCCGGTCACAACACTG
+CTGCTCCAGTGCAGGAGACGTTGCATGGGTGTCAGCCTGTTGCACAGGAGGATGGTAAAGAGAGTCGCAT
+CTCAGTGCAGGAGCGGCAGGTGACAGGCAGCATGGCCTTGAAGCCCCTGGTCTGAGCCCTGGAACTGTTT
+TGGAGGTGATGGTTCCGGAGCAGGGGCCTGGCTCTGACAGCCGCTGACTTTTGAAGTTTGAGAGGAGCCA
+AGGCAGAGCCCGGTGCAGCTAACTTTCGTGCCTGCCCCTGTCATCTCTCGACTTGCTTTTTAAAGATGGA
+GGAAAAGCTTTGGCGTCAGGGGTCCGCAGTAATATCTACAGAGTGCAGCAATGCAGGCCCAGAGATGTCT
+TGCTGCGGTTTTCACTGTAAGGAGTCGTGGACACGGGAGTCCATGACTTGTGGCTTGTGCTGCTAGAAGG
+CACCTGGTTGCCCAGCAGCCGGGGACTGGCTAAATAAATCTGTAATTATTTAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAA
+
+&gt;NM_001424339.1 Homo sapiens CD40 molecule (CD40), transcript variant 9, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATCATCTTCGGGATCCTGT
+TTGCCATCCTCTTGGTGCTGGTCTTTATCAGTGAGTCCTCAGAAAAGGTGGCCAAGAAGCCAACCAATAA
+GGCCCCCCACCCCAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCCTGGCTCCAACACTGCT
+GCTCCAGTGCAGGAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGCAAAGAGAGTCGCATCT
+CAGTGCAGGAGAGACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGCAAACAGGCAGTTGGCC
+AGAGAGCCTGGTGCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGACTGGGCATAGCTCCCCG
+CTTCTGCCTGCACCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAAACAGTTCACCTTGAAG
+AACCTCTCACTTCACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACAGAGGCAGAAGTTTGGT
+GGTGGTGGTGTTGGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGCAGTTTGGTGCCCAGAG
+AGGCATCATGGTGGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATTGCAGCATTGTTTGTGA
+TAGTGAACAACTGGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATAAAATTAGAATATATTT
+ATACAACAGAATCTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTGAATGATGGGTATGGAA
+CTTTTTAAAAAAGTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTATAAATACAATATGCAT
+CATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGACGTCT
+GGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTCATCA
+TTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAAAA
+
+&gt;NM_001322421.2 Homo sapiens CD40 molecule (CD40), transcript variant 5, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGCTACAGGGGTTTCTGATACCATCTGCGAGCCCTGCCCAGTCGGCTTCTTCTCCAATG
+TGTCATCTGCTTTCGAAAAATGTCACCCTTGGACAAGCTGTGAGACCAAAGACCTGGTTGTGCAACAGGC
+AGGCACAAACAAGACTGATGTTGTCTGTGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATC
+ATCTTCGGGATCCTGTTTGCCATCCTCTTGGTGCTGGTCTTTATCAGTGAGTCCTCAGAAAAGGTGGCCA
+AGAAGCCAACCAATAAGGCCCCCCACCCCAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCC
+TGGCTCCAACACTGCTGCTCCAGTGCAGGAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGC
+AAAGAGAGTCGCATCTCAGTGCAGGAGAGACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGC
+AAACAGGCAGTTGGCCAGAGAGCCTGGTGCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGAC
+TGGGCATAGCTCCCCGCTTCTGCCTGCACCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAA
+ACAGTTCACCTTGAAGAACCTCTCACTTCACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACA
+GAGGCAGAAGTTTGGTGGTGGTGGTGTTGGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGC
+AGTTTGGTGCCCAGAGAGGCATCATGGTGGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATT
+GCAGCATTGTTTGTGATAGTGAACAACTGGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATA
+AAATTAGAATATATTTATACAACAGAATCTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTG
+AATGATGGGTATGGAACTTTTTAAAAAAGTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTA
+TAAATACAATATGCATCATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCG
+AAGAGTGGTGACGTCTGGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTC
+CCATAATGCTTCATCATTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCAT
+CAAACATGTAAAAA
+
+&gt;NM_152854.4 Homo sapiens CD40 molecule (CD40), transcript variant 2, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGCTACAGGGGTTTCTGATACCATCTGCGAGCCCTGCCCAGTCGGCTTCTTCTCCAATG
+TGTCATCTGCTTTCGAAAAATGTCACCCTTGGACAAGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGA
+TCCCCATCATCTTCGGGATCCTGTTTGCCATCCTCTTGGTGCTGGTCTTTATCAAAAAGGTGGCCAAGAA
+GCCAACCAATAAGGCCCCCCACCCCAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCCTGGC
+TCCAACACTGCTGCTCCAGTGCAGGAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGCAAAG
+AGAGTCGCATCTCAGTGCAGGAGAGACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGCAAAC
+AGGCAGTTGGCCAGAGAGCCTGGTGCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGACTGGG
+CATAGCTCCCCGCTTCTGCCTGCACCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAAACAG
+TTCACCTTGAAGAACCTCTCACTTCACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACAGAGG
+CAGAAGTTTGGTGGTGGTGGTGTTGGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGCAGTT
+TGGTGCCCAGAGAGGCATCATGGTGGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATTGCAG
+CATTGTTTGTGATAGTGAACAACTGGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATAAAAT
+TAGAATATATTTATACAACAGAATCTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTGAATG
+ATGGGTATGGAACTTTTTAAAAAAGTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTATAAA
+TACAATATGCATCATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGA
+GTGGTGACGTCTGGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCAT
+AATGCTTCATCATTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAA
+CATGTAAAAA
+
+&gt;NM_001322422.2 Homo sapiens CD40 molecule (CD40), transcript variant 6, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATCATCTTCGGGATCCTGT
+TTGCCATCCTCTTGGTGCTGGTCTTTATCAAAAAGGTGGCCAAGAAGCCAACCAATAAGGCCCCCCACCC
+CAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCCTGGCTCCAACACTGCTGCTCCAGTGCAG
+GAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGCAAAGAGAGTCGCATCTCAGTGCAGGAGA
+GACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGCAAACAGGCAGTTGGCCAGAGAGCCTGGT
+GCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGACTGGGCATAGCTCCCCGCTTCTGCCTGCA
+CCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAAACAGTTCACCTTGAAGAACCTCTCACTT
+CACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACAGAGGCAGAAGTTTGGTGGTGGTGGTGTT
+GGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGCAGTTTGGTGCCCAGAGAGGCATCATGGT
+GGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATTGCAGCATTGTTTGTGATAGTGAACAACT
+GGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATAAAATTAGAATATATTTATACAACAGAAT
+CTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTGAATGATGGGTATGGAACTTTTTAAAAAA
+GTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTATAAATACAATATGCATCATATATTGATA
+TAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGACGTCTGGGGTGGGGAAG
+AAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTCATCATTTTTCCCAAAA
+GGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAAAA
+
+&gt;NM_001362758.2 Homo sapiens CD40 molecule (CD40), transcript variant 8, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGCTACAGGGGTTTCTGATACCATCTGCGAGCCCTGCCCAGTCGGCTTCTTCTCCAATG
+TGTCATCTGCTTTCGAAAAATGTCACCCTTGGACAAGCTGTGAGACCAAAGACCTGGTTGTGCAACAGGC
+AGGCACAAACAAGACTGATGTTGTCTGTGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATC
+ATCTTCGGGATCCTGTTTGCCATCCTCTTGGTGCTGGTCTTTATCAGTGGCCAAGAAGCCAACCAATAAG
+GCCCCCCACCCCAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCCTGGCTCCAACACTGCTG
+CTCCAGTGCAGGAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGCAAAGAGAGTCGCATCTC
+AGTGCAGGAGAGACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGCAAACAGGCAGTTGGCCA
+GAGAGCCTGGTGCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGACTGGGCATAGCTCCCCGC
+TTCTGCCTGCACCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAAACAGTTCACCTTGAAGA
+ACCTCTCACTTCACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACAGAGGCAGAAGTTTGGTG
+GTGGTGGTGTTGGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGCAGTTTGGTGCCCAGAGA
+GGCATCATGGTGGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATTGCAGCATTGTTTGTGAT
+AGTGAACAACTGGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATAAAATTAGAATATATTTA
+TACAACAGAATCTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTGAATGATGGGTATGGAAC
+TTTTTAAAAAAGTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTATAAATACAATATGCATC
+ATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGACGTCTG
+GGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTCATCAT
+TTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAAAA
+
+&gt;NM_001302753.2 Homo sapiens CD40 molecule (CD40), transcript variant 3, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGCTACAGGGGTTTCTGATACCATCTGCGAGCCCTGCCCAGTCGGCTTCTTCTCCAATG
+TGTCATCTGCTTTCGAAAAATGTCACCCTTGGACAAGCTGTGAGACCAAAGACCTGGTTGTGCAACAGGC
+AGGCACAAACAAGACTGATGTTGTCTGTGGTGAGTCCTGGACAATGGGCCCTGGAGAAAGCCTAGGAAGG
+TCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATCATCTTCGGGATCCTGTTTGCCATCCTCTTG
+GTGCTGGTCTTTATCAAAAAGGTGGCCAAGAAGCCAACCAATAAGGCCCCCCACCCCAAGCAGGAACCCC
+AGGAGATCAATTTTCCCGACGATCTTCCTGGCTCCAACACTGCTGCTCCAGTGCAGGAGACTTTACATGG
+ATGCCAACCGGTCACCCAGGAGGATGGCAAAGAGAGTCGCATCTCAGTGCAGGAGAGACAGTGAGGCTGC
+ACCCACCCAGGAGTGTGGCCACGTGGGCAAACAGGCAGTTGGCCAGAGAGCCTGGTGCTGCTGCTGCTGT
+GGCGTGAGGGTGAGGGGCTGGCACTGACTGGGCATAGCTCCCCGCTTCTGCCTGCACCCCTGCAGTTTGA
+GACAGGAGACCTGGCACTGGATGCAGAAACAGTTCACCTTGAAGAACCTCTCACTTCACCCTGGAGCCCA
+TCCAGTCTCCCAACTTGTATTAAAGACAGAGGCAGAAGTTTGGTGGTGGTGGTGTTGGGGTATGGTTTAG
+TAATATCCACCAGACCTTCCGATCCAGCAGTTTGGTGCCCAGAGAGGCATCATGGTGGCTTCCCTGCGCC
+CAGGAAGCCATATACACAGATGCCCATTGCAGCATTGTTTGTGATAGTGAACAACTGGAAGCTGCTTAAC
+TGTCCATCAGCAGGAGACTGGCTAAATAAAATTAGAATATATTTATACAACAGAATCTCAAAAACACTGT
+TGAGTAAGGAAAAAAAGGCATGCTGCTGAATGATGGGTATGGAACTTTTTAAAAAAGTACATGCTTTTAT
+GTATGTATATTGCCTATGGATATATGTATAAATACAATATGCATCATATATTGATATAACAAGGGTTCTG
+GAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGACGTCTGGGGTGGGGAAGAAGGGTCTGGGGGA
+GGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTCATCATTTTTCCCAAAAGGAGAGTGAATTCA
+CATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAAAA
+
+&gt;NM_001250.6 Homo sapiens CD40 molecule (CD40), transcript variant 1, mRNA
+AGTGGTCCTGCCGCCTGGTCTCACCTCGCTATGGTTCGTCTGCCTCTGCAGTGCGTCCTCTGGGGCTGCT
+TGCTGACCGCTGTCCATCCAGAACCACCCACTGCATGCAGAGAAAAACAGTACCTAATAAACAGTCAGTG
+CTGTTCTTTGTGCCAGCCAGGACAGAAACTGGTGAGTGACTGCACAGAGTTCACTGAAACGGAATGCCTT
+CCTTGCGGTGAAAGCGAATTCCTAGACACCTGGAACAGAGAGACACACTGCCACCAGCACAAATACTGCG
+ACCCCAACCTAGGGCTTCGGGTCCAGCAGAAGGGCACCTCAGAAACAGACACCATCTGCACCTGTGAAGA
+AGGCTGGCACTGTACGAGTGAGGCCTGTGAGAGCTGTGTCCTGCACCGCTCATGCTCGCCCGGCTTTGGG
+GTCAAGCAGATTGCTACAGGGGTTTCTGATACCATCTGCGAGCCCTGCCCAGTCGGCTTCTTCTCCAATG
+TGTCATCTGCTTTCGAAAAATGTCACCCTTGGACAAGCTGTGAGACCAAAGACCTGGTTGTGCAACAGGC
+AGGCACAAACAAGACTGATGTTGTCTGTGGTCCCCAGGATCGGCTGAGAGCCCTGGTGGTGATCCCCATC
+ATCTTCGGGATCCTGTTTGCCATCCTCTTGGTGCTGGTCTTTATCAAAAAGGTGGCCAAGAAGCCAACCA
+ATAAGGCCCCCCACCCCAAGCAGGAACCCCAGGAGATCAATTTTCCCGACGATCTTCCTGGCTCCAACAC
+TGCTGCTCCAGTGCAGGAGACTTTACATGGATGCCAACCGGTCACCCAGGAGGATGGCAAAGAGAGTCGC
+ATCTCAGTGCAGGAGAGACAGTGAGGCTGCACCCACCCAGGAGTGTGGCCACGTGGGCAAACAGGCAGTT
+GGCCAGAGAGCCTGGTGCTGCTGCTGCTGTGGCGTGAGGGTGAGGGGCTGGCACTGACTGGGCATAGCTC
+CCCGCTTCTGCCTGCACCCCTGCAGTTTGAGACAGGAGACCTGGCACTGGATGCAGAAACAGTTCACCTT
+GAAGAACCTCTCACTTCACCCTGGAGCCCATCCAGTCTCCCAACTTGTATTAAAGACAGAGGCAGAAGTT
+TGGTGGTGGTGGTGTTGGGGTATGGTTTAGTAATATCCACCAGACCTTCCGATCCAGCAGTTTGGTGCCC
+AGAGAGGCATCATGGTGGCTTCCCTGCGCCCAGGAAGCCATATACACAGATGCCCATTGCAGCATTGTTT
+GTGATAGTGAACAACTGGAAGCTGCTTAACTGTCCATCAGCAGGAGACTGGCTAAATAAAATTAGAATAT
+ATTTATACAACAGAATCTCAAAAACACTGTTGAGTAAGGAAAAAAAGGCATGCTGCTGAATGATGGGTAT
+GGAACTTTTTAAAAAAGTACATGCTTTTATGTATGTATATTGCCTATGGATATATGTATAAATACAATAT
+GCATCATATATTGATATAACAAGGGTTCTGGAAGGGTACACAGAAAACCCACAGCTCGAAGAGTGGTGAC
+GTCTGGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTC
+ATCATTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAA
+AA
+</code>
+</pre>
+</details>
+<details>
+<summary>
+Click to toggle contents of normal_text.txt
+</summary>
+<pre><code>
+hello this is an example text
+hello hello hello 
+hello this is an example text
+</code>
+</pre>
+</details>
+<details>
+<summary>
+Click to toggle contents of Q9NZQ7.fasta
+</summary>
+<pre><code>
+&gt;sp|Q9NZQ7|PD1L1_HUMAN Programmed cell death 1 ligand 1 OS=Homo sapiens OX=9606 GN=CD274 PE=1 SV=1
+MRIFAVFIFMTYWHLLNAFTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEME
+DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
+ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
+TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
+LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
+</code>
+</pre>
+</details>
+<details>
+<summary>
+Click to toggle contents of Q9Y4U1.fasta
+</summary>
+<pre><code>
+&gt;sp|Q9Y4U1|MMAC_HUMAN Cyanocobalamin reductase / alkylcobalamin dealkylase OS=Homo sapiens OX=9606 GN=MMACHC PE=1 SV=3
+MEPKVAELKQKIEDTLCPFGFEVYPFQVAWYNELLPPAFHLPLPGPTLAFLVLSTPAMFD
+RALKPFLQSCHLRMLTDPVDQCVAYHLGRVRESLPELQIEIIADYEVHPNRRPKILAQTA
+AHVAGAAYYYQRQDVEADPWGNQRISGVCIHPRFGGWFAIRGVVLLPGIEVPDLPPRKPH
+DCVPTRADRIALLEGFNFHWRDWTYRDAVTPQERYSEEQKAYFSTPPAQRLALLGLAQPS
+EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
+</code>
+</pre>
+</details>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>This is the output of <code>fastascan</code> using the default settings (without specifying directory or number of lines, meaning that it will search in the current directory and not show any content from the files):</p>
+<details>
+<summary>
+Click to toggle the output
+</summary>
+<pre><code>
+
+suarezalvarez🐉 ~/sequences_example $ fastascan
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!IMPORTANT INFORMATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+This program uses 2 arguments: the directory and the number of lines of each file to show.
+If you only specify one of them, it will be interpreted as the number of lines if this argument is an integer, and as the directory if it is a text string.
+
+This program considers a .fasta or .fa file to be a nucleotide (RNA or DNA) sequence if the content of A, C, T, G, U and N (upper or lower case) in the sequences contained in the file is greater or equal than 90%. If this condition is not fulfilled, the file will automatically be considered a protein sequence file.
+
+This program considers the first word (delimited by spaces) after the "&gt;" symbol in a fasta header as the identifier of the sequence.
+
+================================================================
+======================== SUMMARY ===============================
+================================================================
+
+Total number of .fasta and .fa files in the specified folders and its subfolders: 3
+Number of unique fasta IDs: 10
+
+
+================================================================
+================== INDIVIDUAL REPORT ===========================
+================================================================
+
+
+========== /home/martin/sequences_example/Q9Y4U1.fasta [PROTEIN FASTA FILE] ==========
+xx 1 protein sequence(s)
+xx 282 amino acids in the sequences of this file
+xx Not a symbolic link
+
+
+========== /home/martin/sequences_example/cd40_seqs.fa [NUCLEIC ACID FASTA FILE] ==========
+xx 8 nucleic acid sequence(s)
+xx 12731 nucleotides in the sequences of this file
+xx Not a symbolic link
+
+
+========== /home/martin/sequences_example/Q9NZQ7.fasta [PROTEIN FASTA FILE] ==========
+xx 1 protein sequence(s)
+xx 290 amino acids in the sequences of this file
+xx Not a symbolic link
+```
+</code>
+</pre>
+</details>
+<p>And this is the output specifying the folder from my home folder, and specifying the number of lines.</p>
+<details>
+<summary>
+Click to toggle the output
+</summary>
+<pre><code>
+suarezalvarez🐉 ~ $ fastascan sequences_example/ 4
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!IMPORTANT INFORMATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+This program uses 2 arguments: the directory and the number of lines of each file to show.
+If you only specify one of them, it will be interpreted as the number of lines if this argument is an integer, and as the directory if it is a text string.
+
+This program considers a .fasta or .fa file to be a nucleotide (RNA or DNA) sequence if the content of A, C, T, G, U and N (upper or lower case) in the sequences contained in the file is greater or equal than 90%. If this condition is not fulfilled, the file will automatically be considered a protein sequence file.
+
+This program considers the first word (delimited by spaces) after the "&gt;" symbol in a fasta header as the identifier of the sequence.
+
+================================================================
+======================== SUMMARY ===============================
+================================================================
+
+Total number of .fasta and .fa files in the specified folders and its subfolders: 3
+Number of unique fasta IDs: 10
+
+
+================================================================
+================== INDIVIDUAL REPORT ===========================
+================================================================
+
+
+========== sequences_example/Q9Y4U1.fasta [PROTEIN FASTA FILE] ==========
+xx 1 protein sequence(s)
+xx 282 amino acids in the sequences of this file
+xx Not a symbolic link
+
+
+-- previsualization of the file content--
+
+&gt;sp|Q9Y4U1|MMAC_HUMAN Cyanocobalamin reductase / alkylcobalamin dealkylase OS=Homo sapiens OX=9606 GN=MMACHC PE=1 SV=3
+MEPKVAELKQKIEDTLCPFGFEVYPFQVAWYNELLPPAFHLPLPGPTLAFLVLSTPAMFD
+RALKPFLQSCHLRMLTDPVDQCVAYHLGRVRESLPELQIEIIADYEVHPNRRPKILAQTA
+AHVAGAAYYYQRQDVEADPWGNQRISGVCIHPRFGGWFAIRGVVLLPGIEVPDLPPRKPH
+DCVPTRADRIALLEGFNFHWRDWTYRDAVTPQERYSEEQKAYFSTPPAQRLALLGLAQPS
+EKPSSPSPDLPFTTPAPKKPGNPSRARSWLSPRVSPPASPGP
+
+========== sequences_example/cd40_seqs.fa [NUCLEIC ACID FASTA FILE] ==========
+xx 8 nucleic acid sequence(s)
+xx 12731 nucleotides in the sequences of this file
+xx Not a symbolic link
+
+
+-- previsualization of the file content --
+
+[!!!]WARNING: Only the first and last 4 lines are printed[!!!]
+
+&gt;NM_134360.1 Rattus norvegicus CD40 molecule (Cd40), mRNA
+CTGGCTGCTCTGATCTCGCTCTGCAATGCTGCCTTTGCCTCAGCTGTGCGCGCTCTGGGGCTGCTTGTTG
+ACAGCGGTCCATCTAGGACAGTGTGTTACGTGCAGTGACAAACAGTACCTCCAAGGTGGCGAGTGCTGCG
+ATTTGTGCCAGCCGGGAAACCGACTAGTTAGCCACTGCACAGCTCTTGAGAAGACCCAATGCCAACCGTG
+...
+GTCTGGGGTGGGGAAGAAGGGTCTGGGGGAGGGTTGGTTAAAGGGAGATTTGGCTTTCCCATAATGCTTC
+ATCATTTTTCCCAAAAGGAGAGTGAATTCACATAATGCTTATGTAATTAAAAAATCATCAAACATGTAAA
+AA
+
+
+========== sequences_example/Q9NZQ7.fasta [PROTEIN FASTA FILE] ==========
+xx 1 protein sequence(s)
+xx 290 amino acids in the sequences of this file
+xx Not a symbolic link
+
+
+-- previsualization of the file content--
+
+&gt;sp|Q9NZQ7|PD1L1_HUMAN Programmed cell death 1 ligand 1 OS=Homo sapiens OX=9606 GN=CD274 PE=1 SV=1
+MRIFAVFIFMTYWHLLNAFTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEME
+DKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGG
+ADYKRITVKVNAPYNKINQRILVVDPVTSEHELTCQAEGYPKAEVIWTSSDHQVLSGKTT
+TTNSKREEKLFNVTSTLRINTTTNEIFYCTFRRLDPEENHTAELVIPELPLAHPPNERTH
+LVILGAILLCLGVALTFIFRLRKGRMMDVKKCGIQDTNSKKQSDTHLEET
+</code>
+</pre>
+</details>
+</section>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<h3 class="anchored" data-anchor-id="code">
+<a href="https://github.com/suarezalvarez/peekfile/blob/main/fastascan.sh">Check the code here</a>
+</h3><h3 class="anchored">
+
+
+</h3></section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
