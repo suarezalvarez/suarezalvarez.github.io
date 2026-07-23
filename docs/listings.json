@@ -1,20 +1,23 @@
 [
   {
+    "listing": "/random.html",
+    "items": [
+      "/posts/mastermind/index.html"
+    ]
+  },
+  {
+    "listing": "/academic.html",
+    "items": [
+      "/posts/fastascan/index.html",
+      "/posts/wisefrog/index.html"
+    ]
+  },
+  {
     "listing": "/posts.html",
     "items": [
       "/posts/fastascan/index.html",
       "/posts/mastermind/index.html",
-      "/posts/wisefrog/index.html",
-      "/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/fastascan/index.html",
-      "/posts/mastermind/index.html",
-      "/posts/wisefrog/index.html",
-      "/posts/welcome/index.html"
+      "/posts/wisefrog/index.html"
     ]
   }
 ]

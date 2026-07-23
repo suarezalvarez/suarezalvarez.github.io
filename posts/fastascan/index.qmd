@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "fastascan"
+categories: [academic]
 ---
 
 ```fastascan``` is the name of a tool that we had to create in the MSc in bioinformatics as an assignment for a Unix/algorithmics course. This was one midterm assignment after approximately 2 months using bash. 

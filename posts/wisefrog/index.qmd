@@ -2,7 +2,7 @@
 title: "wisefrog"
 author: "Martín Suárez Álvarez"
 date: "2025-02-08"
-categories: [code, tools, bioinformatics, structural bioinformatics]
+categories: [academic]
 image: "wisefrog/wisefrog.png"
 ---
 
