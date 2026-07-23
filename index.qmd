@@ -20,5 +20,9 @@ I have great interest in single-cell and spatial data analysis, and mucosal immu
 - **2023-2025:** MSc in Bioinformatics for health sciences, University Pompeu Fabra / University of Barcelona
 - **2019-2023:** BSc in Biochemistry, University of Barcelona
 
-## Publications
+## Publications [![](Unknown.png){width="24px"}](https://orcid.org/0009-0003-6420-1362)
+
+- [**Suarez-Alvarez M**, Ulloa MA]{.underline}, Villablanca EJ. Decoding the complexity of intestinal immunity with spatial transcriptomics. 2026-08, *Current Opinions in Immunology*. [10.1016/j.coi.2026.102806](https://www.sciencedirect.com/science/article/pii/S095279152600083X?via%3Dihub).
+- [Fransson J, Sorini C]{.underline}, Castillo F, Chi Y, Ning H, **Suarez-Alvarez M**, Ulloa MA, Morales Castro RA, Okhovat A, Sounart H, Zagami C,Cardoso RF, Das S, Giacomello S, Mechling A, Hedin CRH, Smith P, Villablanca EJ. Spatiotemporal analysis reveals distinct inflammatory programs underlying chronic colitis. 2026-05, *Immunity*. [10.1016/j.immuni.2026.04.005](https://doi.org/10.1016/j.immuni.2026.04.005).
+-  [Storz MA]{.underline}, Müller A, Niederreiter L, Zimmermann-Klemd AM, **Suarez-Alvarez M**, Kowarschik S, Strittmatter M, Schlachter E, Pasluosta C, Huber R, Hannibal L. A cross-sectional study of nutritional status in healthy, young, physically-active German omnivores, vegetarians and vegans reveals adequate vitamin B12 status in supplemented vegans. 2023-10, *Annals of medicine*. [10.1080/07853890.2023.2269969](https://doi.org/10.1080/07853890.2023.2269969)
 
