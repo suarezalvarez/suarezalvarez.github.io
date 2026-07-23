@@ -6,6 +6,7 @@ website:
   navbar:
     right:
       - about.qmd
+      - posts.qmd
       - icon: linkedin
         text: LinkedIn
         href: www.linkedin.com/in/martin-suarez-alvarez-00b94a225

@@ -2,7 +2,7 @@
 title: "Mastermind"
 author: "Martín Suárez Álvarez"
 date: "2025-02-09"
-categories: [news, code, game]
+categories: [random]
 image: "board.jpg"
 ---
 
