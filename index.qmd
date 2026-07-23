@@ -15,10 +15,13 @@ I have great interest in single-cell and spatial data analysis, and mucosal immu
 
 ## Education / experience
 
-- **2026-current:** PhD in immunology, Karolinska Institutet
-- **Aug2025-Jan2026**: Research assistant, Karolinska institutet
-- **2023-2025:** MSc in Bioinformatics for health sciences, University Pompeu Fabra / University of Barcelona
-- **2019-2023:** BSc in Biochemistry, University of Barcelona
+- **2026-current:** PhD in immunology, Karolinska Institutet ([Eduardo Villablanca research group](https://villablancalab.com))
+- **Aug 2025-Jan 2026**: Research assistant, Karolinska institutet ([Eduardo Villablanca research group](https://villablancalab.com))
+- **Oct 2024-June 2025**: MSc thesis, Karolinska institutet ([Eduardo Villablanca research group](https://villablancalab.com))
+- **2023-2025:** MSc in Bioinformatics for health sciences, [University Pompeu Fabra / University of Barcelona](https://www.upf.edu/web/bioinformatics)
+- **Feb 2023-Jul 2023**: Bachelor thesis, University of Freiburg, Germany ([Luciana Hannibal research group](https://www.research-for-children.de/groups/hannibal/))
+- **Jun 2022-Sep 2022**: Summer intern, La Jolla Institute for Immunology, USA ([Sonia Sharma research group](https://www.lji.org/labs/sharma-lab/))
+- **2019-2023:** BSc in Biochemistry, ([University of Barcelona](https://web.ub.edu/en/web/estudis/w/bachelordegree-g1034))
 
 ## Publications [![](Unknown.png){width="24px"}](https://orcid.org/0009-0003-6420-1362)
 
