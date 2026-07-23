@@ -9,7 +9,7 @@ title-block-banner: true
 ## About
 
 
-Hello, I'm Martín Suárez Álvarez! I was born in Galicia and I am currently based in Stockholm. I'm a Biochemist (University of Barcelona) and did a MSc in Bioinformatics for Health Sciences (University Pompeu Fabra / University of Barcelona). I'm currently pursuing a PhD in immunology at (Karolinska Institutet)[https://ki.se].
+Hello, I'm Martín Suárez Álvarez! I was born in Galicia and I am currently based in Stockholm. I'm a Biochemist (University of Barcelona) and did a MSc in Bioinformatics for Health Sciences (University Pompeu Fabra / University of Barcelona). I'm currently pursuing a PhD in immunology at [Karolinska Institutet](https://ki.se).
 
 I have great interest in single-cell and spatial data analysis, and mucosal immunology. Broadly, I would like to learn more about ML/DL, spatial statistics (beyond biology), and science policy.  
 
