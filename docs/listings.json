@@ -6,5 +6,12 @@
       "/posts/mastermind/index.html",
       "/posts/wisefrog/index.html"
     ]
+  },
+  {
+    "listing": "/academic.html",
+    "items": [
+      "/posts/fastascan/index.html",
+      "/posts/wisefrog/index.html"
+    ]
   }
 ]
