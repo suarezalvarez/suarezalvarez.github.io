@@ -137,7 +137,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#education-experience" id="toc-education-experience" class="nav-link" data-scroll-target="#education-experience">Education / experience</a></li>
   <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications <img src="Unknown.png" class="img-fluid" width="24"></a></li>
-  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  <li><a href="#conferences" id="toc-conferences" class="nav-link" data-scroll-target="#conferences">Conferences</a></li>
+  <li><a href="#scholarships-and-grants" id="toc-scholarships-and-grants" class="nav-link" data-scroll-target="#scholarships-and-grants">Scholarships and grants</a></li>
   <li><a href="#blog-side" id="toc-blog-side" class="nav-link" data-scroll-target="#blog-side">Blog side</a></li>
   </ul>
 </nav>
@@ -174,12 +175,20 @@ ul.task-list li input[type="checkbox"] {
 <li><u>Storz MA</u>, Müller A, Niederreiter L, Zimmermann-Klemd AM, <strong>Suarez-Alvarez M</strong>, Kowarschik S, Strittmatter M, Schlachter E, Pasluosta C, Huber R, Hannibal L. A cross-sectional study of nutritional status in healthy, young, physically-active German omnivores, vegetarians and vegans reveals adequate vitamin B12 status in supplemented vegans. 2023-10, <em>Annals of medicine</em>. <a href="https://doi.org/10.1080/07853890.2023.2269969">10.1080/07853890.2023.2269969</a></li>
 </ul>
 </section>
-<section id="others" class="level2">
-<h2 class="anchored" data-anchor-id="others">Others</h2>
+<section id="conferences" class="level2">
+<h2 class="anchored" data-anchor-id="conferences">Conferences</h2>
 <ul>
 <li><strong>Poster presentation:</strong> <strong>Suarez-Alvarez M</strong>, Wingert V, Spiekerkoetter U, Stabler SP, Hannibal L (September 17-20 2023). Biomarkers and submetabolomes of experimental B12 deficiency. <a href="https://www.club-12.org/hcy2023">HCY2023: 14th International conference on One-Carbon Metabolism, B Vitamins and Homocysteine - Cambridge, England</a>.</li>
 <li><strong>Poster presentation:</strong> <strong>Martín Suárez-Álvarez</strong>, Francisca A. Castillo, Katja Selin, Charlotte Hedin, Eduardo J. Villablanca(September 28-October 1st 2026). Spatially resolved gene programs associated with remission in inflammatory bowels disease. <a href="https://essb2026.org">3rd Conference of the European Society for Spatial Biology - Sitges, Spain</a>.</li>
 <li><strong>Poster presentation:</strong> <strong>Martín Suárez-Álvarez</strong>, Francisca A. Castillo, Katja Selin, Charlotte Hedin, Eduardo J. Villablanca(October 15th 2026). Spatially resolved gene programs associated with remission in inflammatory bowels disease. <a href="https://ki.se/en/lime/ki-north-conference-2026">Karolinska Institutet North Conference</a>.</li>
+</ul>
+</section>
+<section id="scholarships-and-grants" class="level2">
+<h2 class="anchored" data-anchor-id="scholarships-and-grants">Scholarships and grants</h2>
+<ul>
+<li>Scholarship <em>Fundació Universitària Agustí Pedro i Pons</em> for researchers abroad (MSc thesis, 2024-25)</li>
+<li>Becas Santander | MOBILITAT INTERNACIONAL-UNIVERSITAT DE BARCELONA (BSc thesis, 2022-23)</li>
+<li>Becas Santander Estudios | Erasmus (BSc thesis, 2022-23)</li>
 </ul>
 </section>
 <section id="blog-side" class="level2">
@@ -268,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/suarezalvarez\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
